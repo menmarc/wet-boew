@@ -24,7 +24,6 @@ var componentName = "wb-overlay",
 	sourceLinks = {},
 	setFocusEvent = "setfocus.wb",
 	$document = wb.doc,
-	i18n, i18nText,
 
 	/**
 	 * @method init
@@ -36,13 +35,13 @@ var componentName = "wb-overlay",
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
-			$elm, footer, $header, closeText, overlayClose;
+			$elm, footer, overlayClose;
 
 		if ( elm ) {
 			$elm = $( elm );
 
 			// Only initialize the i18nText once
-			if ( !i18nText ) {
+			/*if ( !i18nText ) {
 				i18n = wb.i18n;
 				i18nText = {
 					close: i18n( "close" ),
@@ -51,7 +50,7 @@ var componentName = "wb-overlay",
 					esc: i18n( "esc-key" ),
 					closeOverlay: i18n( closeClass )
 				};
-			}
+			}*/
 
 			// One left and right panels add close button
 			var isPanel = ( $elm.attr( "class" ).indexOf( "wb-panel" ) > -1 ) ? true : false,
@@ -62,8 +61,8 @@ var componentName = "wb-overlay",
 				var hasFooter = ( footer && footer.length !== 0 ) ? true : false,
 					hasButton = hasFooter && $( footer ).find( closeClass ).length !== 0,
 					closeClassFtr = ( $elm.hasClass( "wb-panel-l" ) ? "pull-right " : "pull-left " )  + closeClass,
-					closeTextFtr = i18nText.close,
-					spanTextFtr = i18nText.closeOverlay,
+					closeTextFtr = "Fermer", //i18nText.close,
+					spanTextFtr = "Fermer", //i18nText.closeOverlay,
 					overlayCloseFtr;
 
 				if ( !hasButton ) {
@@ -89,17 +88,8 @@ var componentName = "wb-overlay",
 			}
 
 			// Add close button
-			$header = $elm.find( ".modal-title" );
-			if ( $header.length !== 0 ) {
-				closeText = i18nText.close + i18nText.colon + i18nText.space +
-					$header.text() + i18nText.space + i18nText.esc;
-			} else {
-				closeText = i18nText.closeOverlay;
-			}
-			closeText = closeText.replace( "'", "&#39;" );
 			overlayClose = "<button type='button' class='mfp-close " + closeClass +
-				"' title='" + closeText + "'>&#xd7;<span class='wb-inv'> " +
-				closeText + "</span></button>";
+			"'>&#xd7;<span lang='en' class='wb-inv'>Close</span><span lang='fr' class='wb-inv'>Fermer</span></button>";
 
 			$elm.append( overlayClose );
 			elm.setAttribute( "aria-hidden", "true" );

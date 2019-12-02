@@ -105,7 +105,7 @@
 @import "language-selector/base";
 @import "sign-in-off/base";
 @import "ellipsis/base";
-@import "transitions/base";
+/*@import "transitions/base";*/
 @import "proximity/base";
 @import "lists/base";
 @import "forms/base";
@@ -114,7 +114,8 @@
 /*
  Plugins
  */
-@import "../plugins/cal-events/base";
+
+/*@import "../plugins/cal-events/base";
 @import "../plugins/calendar/base";
 @import "../plugins/charts/base";
 @import "../plugins/collapsible-alerts/base";
@@ -122,28 +123,83 @@
 @import "../plugins/equalheight/base";
 @import "../plugins/filter/base";
 @import "../plugins/footnotes/base";
-@import "../plugins/formvalid/base";
-@import "../plugins/lightbox/base";
+@import "../plugins/formvalid/base";*/
+/*@import "../plugins/lightbox/base";*/
 @import "../plugins/menu/base";
-@import "../plugins/multimedia/base";
+/*@import "../plugins/multimedia/base";*/
 @import "../plugins/overlay/base";
-@import "../plugins/prettify/base";
+/*@import "../plugins/prettify/base";
 @import "../plugins/resize/base";
-@import "../plugins/share/base";
+@import "../plugins/share/base";*/
 @import "../plugins/tables/base";
-@import "../plugins/tabs/base";
+/*@import "../plugins/tabs/base";
 @import "../plugins/twitter/base";
 @import "../plugins/texthighlight/base";
 @import "../plugins/geomap/base";
 @import "../plugins/zebra/base";
-@import "../plugins/feeds/base";
+@import "../plugins/feeds/base";*/
+
+/*Added button style here for X on menu to remove weird dependency on lightbox. These were copied from lib\magnific-popup\src\css\main.scss*/
+$controls-opacity: .65 !default;
+$controls-color:#FFF !default;
+$z-index-base: 1040 !default; // Base z-index of popup
+button {
+	&.mfp-close,
+	&.mfp-arrow {
+		-webkit-appearance: none;
+		-webkit-box-shadow: none;
+		background: transparent;
+		border: 0;
+		box-shadow: none;
+		cursor: pointer;
+		display: block;
+		outline: none;
+		overflow: visible;
+		padding: 0;
+		z-index: $z-index-base + 6;
+	}
+}
+.mfp-close,
+.mfp-arrow,
+.mfp-preloader,
+.mfp-counter {
+	-moz-user-select: none;
+	-webkit-user-select:none;
+	user-select: none;
+}
+// Close icon
+.mfp-close {
+	color: $controls-color;
+	font-family: Arial, Baskerville, monospace;
+	font-size: 28px;
+	font-style: normal;
+	height: 44px;
+	line-height: 44px;
+	opacity: $controls-opacity;
+	padding: 0 0 18px 10px;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	text-decoration: none;
+	top: 0;
+	width: 44px;
+	&:hover,
+	&:focus {
+		opacity: 1;
+	}
+
+	&:active {
+		top: 1px;
+	}
+}
+
 
 /*
  Polyfills
  */
-@import "../polyfills/datalist/base";
+/*@import "../polyfills/datalist/base";*/
 @import "../polyfills/details/base";
-@import "../polyfills/datepicker/base";
+/*@import "../polyfills/datepicker/base";*/
 
 /*
  Views
@@ -151,7 +207,7 @@
 /* All screen views */
 @media screen {
 	@import "views/screen";
-	@import "../plugins/prettify/screen";
+	/*@import "../plugins/prettify/screen";*/
 	@import "../plugins/tabs/screen";
 }
 
@@ -163,8 +219,8 @@
 /* Small view and under */
 @media screen and (max-width: $screen-sm-max) {
 	@import "views/screen-sm-max";
-	@import "../plugins/tables/screen-sm-max";
-	@import "../plugins/tabs/screen-sm-max";
+	/*@import "../plugins/tables/screen-sm-max";
+	@import "../plugins/tabs/screen-sm-max";*/
 }
 
 /* Medium view and under */
@@ -180,38 +236,38 @@
 /* Extra-small view and over */
 @media screen and (min-width: $screen-xs-min) {
 	@import "views/screen-xs-min";
-	@import "proximity/screen-xs-min";
+	/*@import "proximity/screen-xs-min";*/
 	@import "../plugins/menu/screen-xs-min";
-	@import "../plugins/tables/screen-xs-min";
+	/*@import "../plugins/tables/screen-xs-min";*/
 }
 
 /* Small view and over */
 @media screen and (min-width: $screen-sm-min) {
 	@import "views/screen-sm-min";
 	@import "views/_bootstrap-4-screen-sm-min";
-	@import "proximity/screen-sm-min";
+	/*@import "proximity/screen-sm-min";*/
 }
 
 /* Medium view and over */
 @media screen and (min-width: $screen-md-min) {
 	@import "views/screen-md-min";
 	@import "proximity/screen-md-min";
-	@import "../plugins/feeds/screen-md-min";
-	@import "../plugins/tabs/screen-md-min";
+	/*@import "../plugins/feeds/screen-md-min";
+	@import "../plugins/tabs/screen-md-min";*/
 }
 
 /* Large view and over */
 @media screen and (min-width: $screen-lg-min) {
 	@import "views/screen-lg-min";
-	@import "proximity/screen-lg-min";
+	/*@import "proximity/screen-lg-min";*/
 }
 
 /* Extra-extra-small view */
 @media screen and (max-width: $screen-xxs-max) {
 	@import "views/screen-xxs-max";
 	@import "../plugins/menu/screen-xxs-max";
-	@import "../plugins/tables/screen-xxs-max";
-	@import "../plugins/tabs/screen-xxs-max";
+	/*@import "../plugins/tables/screen-xxs-max";
+	@import "../plugins/tabs/screen-xxs-max";*/
 }
 
 /* Extra-small view */
@@ -237,18 +293,18 @@
 /* Extra-large view */
 @media screen and (min-width: $screen-xl-min) {
 	@import "views/screen-xl-min";
-	@import "proximity/screen-xl-min";
+	/*@import "proximity/screen-xl-min";*/
 }
 
 /* Print view */
 @media print {
 	@import "views/print";
-	@import "breadcrumb/print";
+	/*@import "breadcrumb/print";
 	@import "../plugins/footnotes/print";
 	@import "../plugins/geomap/print";
 	@import "../plugins/lightbox/print";
 	@import "../plugins/multimedia/print";
 	@import "../plugins/overlay/print";
 	@import "../plugins/prettify/print";
-	@import "../plugins/tabs/print";
+	@import "../plugins/tabs/print";*/
 }

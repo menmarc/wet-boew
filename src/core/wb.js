@@ -515,95 +515,12 @@ Modernizr.load( [
 			"plyfll!details.min.css"
 		]
 	}, {
-		test: Modernizr.input.list,
-		nope: [
-			"plyfll!datalist.min.js",
-			"plyfll!datalist.min.css"
-		]
-	}, {
-		test: Modernizr.inputtypes.date,
-		nope: [
-			"plyfll!datepicker.min.js",
-			"plyfll!datepicker.min.css"
-		]
-	}, {
-		test: Modernizr.inputtypes.range,
-		nope: [
-			"plyfll!slider.min.js",
-			"plyfll!slider_wrapper.min.js",
-			"plyfll!slider.min.css"
-		],
-		callback: function( url ) {
-			if ( url === "slider.min.js" ) {
-				window.fdSlider.onDomReady();
-			}
-		}
-	}, {
-		test: Modernizr.progressbar,
-		nope: [
-			"plyfll!progress.min.js",
-			"plyfll!progress.min.css"
-		]
-	}, {
-		test: Modernizr.mathml,
-
-		// Cleanup Modernizr test and add selector to global timer
-		complete: function() {
-			var	componentName = "wb-math",
-				selector = "math",
-				math = document.getElementsByTagName( selector ),
-				$document = wb.doc;
-
-			// Cleanup elements that Modernizr.mathml test leaves behind.
-			if ( math.length ) {
-				document.body.removeChild( math[ math.length - 1 ].parentNode );
-			}
-
-			// Defer loading the polyfill till an element is detected due to the size
-			if ( !Modernizr.mathml ) {
-
-				// Bind the init event of the plugin
-				$document.one( "timerpoke.wb wb-init." + componentName, selector, function() {
-
-					// Start initialization
-					wb.init( document, componentName, selector );
-
-					// Load the MathML dependency. Since the polyfill is only loaded
-					// when !Modernizr.mathml, we can skip the test here.
-					Modernizr.load( [ {
-						load: "timeout=500!https://cdn.jsdelivr.net/npm/mathjax@WET_BOEW_VERSION_MATHJAX/MathJax.js?config=Accessible",
-						complete: function() {
-							Modernizr.load( [ {
-								test: window.MathJax === undefined,
-								yep: "mthjx!MathJax.js?config=Accessible"
-							} ] );
-
-							// Identify that initialization has completed
-							wb.ready( $document, componentName );
-						}
-					} ] );
-				} );
-
-				wb.add( selector );
-			}
-		}
-	}, {
-		test: Modernizr.meter,
-		nope: [
-			"plyfll!meter.min.js",
-			"plyfll!meter.min.css"
-		]
-	}, {
 		test: Modernizr.touch,
 		yep: "plyfll!mobile.min.js"
 	}, {
 		test: Modernizr.svg,
 		nope: "plyfll!svg.min.js"
 	}, {
-		load: "i18n!i18n/",
-		testReady: function() {
-			return wb.i18nDict.tphp;
-		},
 		complete: function() {
 			wb.start();
 		}

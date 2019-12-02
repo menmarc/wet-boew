@@ -11,6 +11,7 @@ module.exports = (grunt) ->
 		[
 			"build"
 			"demos"
+			"minify"
 		]
 	)
 
@@ -120,12 +121,12 @@ module.exports = (grunt) ->
 		"js"
 		"INTERNAL: Copies all third party JS to the dist folder"
 		[
-			"i18n_csv:js"
+			#"i18n_csv:js"
 			"copy:js"
 			"concat:core"
-			"concat:coreIE8"
-			"concat:pluginsIE8"
-			"concat:i18n"
+			#"concat:coreIE8"
+			#"concat:pluginsIE8"
+			#"concat:i18n"
 		]
 	)
 
@@ -135,9 +136,9 @@ module.exports = (grunt) ->
 		[
 			"uglify:polyfills"
 			"uglify:core"
-			"uglify:coreIE8"
-			"uglify:i18n"
-			"uglify:deps"
+			#"uglify:coreIE8"
+			#"uglify:i18n"
+			#"uglify:deps"
 		]
 	)
 
@@ -157,8 +158,8 @@ module.exports = (grunt) ->
 		"INTERNAL: Minify the CSS files"
 		[
 			"cssmin:dist"
-			"cssmin:distIE8"
-			"cssmin_ie8_clean"
+			#"cssmin:distIE8"
+			#"cssmin_ie8_clean"
 		]
 	)
 
@@ -377,6 +378,30 @@ module.exports = (grunt) ->
 					"src/core/wb.js"
 					"src/core/helpers.js"
 					"src/plugins/**/*.js"
+					#"src/plugins/ajax-fetch/*.js"
+					#"src/plugins/overlay/*.js"
+					#"src/plugins/menu/*.js"
+					#"src/plugins/wb-focus/*.js"
+					#"src/plugins/collapsible-alerts/*.js"
+					#"src/plugins/data-ajax/*.js"
+					#"src/plugins/data-inview/*.js"
+					#"src/plugins/deps/*.js"
+					#"src/plugins/dismissable-content/*.js"
+					#"src/plugins/equalheight/*.js"
+					#"src/plugins/lightbox/*.js"
+					#"src/plugins/multimedia/*.js"
+					#"src/plugins/favicon/*.js"
+					#"src/plugins/filter/*.js"
+					#"src/plugins/navcurrent/*.js"
+					#"src/plugins/prettify/*.js"
+					#"src/plugins/resize/*.js"
+					#"src/plugins/tabs/*.js"
+					#"src/plugins/toggle/*.js"
+					#"src/plugins/wb-disable/*.js"
+					"lib/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"
+					"!src/plugins/multimedia/*.js"
+					"!src/plugins/favicon/*.js"
+					"!src/plugins/wb-disable/*.js"
 					"!src/plugins/**/test.js"
 					"!src/plugins/**/assets/*.js"
 					"!src/plugins/**/demo/*.js"
@@ -407,6 +432,12 @@ module.exports = (grunt) ->
 				src: [
 					"src/core/helpers.js"
 					"src/plugins/**/*.js"
+					#"src/plugins/ajax-fetch/*.js"
+					#"src/plugins/overlay/*.js"
+					#"src/plugins/menu/*.js"
+					#"src/plugins/lightbox/*.js"
+					#"src/plugins/data-ajax/*.js"
+					"lib/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"
 					"!src/plugins/**/test.js"
 					"!src/plugins/**/assets/*.js"
 					"!src/plugins/**/demo/*.js"

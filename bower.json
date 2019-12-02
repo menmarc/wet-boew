@@ -24,7 +24,8 @@
   "dependencies": {
     "excanvas": "*",
     "flot": "0.8.3",
-    "SideBySideImproved": "https://github.com/pkoltermann/SideBySideImproved.git"
+    "SideBySideImproved": "https://github.com/pkoltermann/SideBySideImproved.git",
+    "bootstrap-sass-official": "3.3.1"
   },
   "moduleType": [
     "globals"
