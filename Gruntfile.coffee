@@ -1156,7 +1156,7 @@ module.exports = (grunt) ->
 						"datatables/media/js/jquery.dataTables.js"
 						"jquery-validation/dist/jquery.validate.js"
 						"jquery-validation/dist/additional-methods.js"
-						"magnific-popup/dist/jquery.magnific-popup.js"
+						"magnific-popup/dist/jquery.magnific-popup.min.js"
 						"proj4/dist/proj4.js"
 						"unorm/lib/unorm.js"
 					]
